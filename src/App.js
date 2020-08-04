@@ -1,20 +1,29 @@
 import React from 'react';
 
-// class App extends Component {
-//     render() {
-//         return (
-//             <React.Fragment>
-//                 <label htmlFor="bar">bar</label>
-//                 <input type="text" onChange={() => console.log("hello")} />
-//             </React.Fragment>
-//         );
-//     }
-// }
 const App = () => {
-    return <div>Hi!<Cat /></div>
+    const profiles = [
+        { name: "Taro", age: 10 },
+        { name: "Hanako", age: 14 },
+        { name: "Noname" },
+    ];
+    return (
+        <div>
+            {
+                profiles.map((profiles, index) => {
+                    return <User name={profiles.name} age={profiles.age} key={index} />
+                })
+            }
+        </div>
+
+    );
 }
-const Cat = () => {
-    return <div>Meow!</div>
+
+const User = (props) => {
+return <div>Hi, I am {props.name}, and {props.age} yers old!</div>
+}
+
+User.defaultProps = {
+    age: 1
 }
 
 
